@@ -15,8 +15,9 @@ export const styles = StyleSheet.create({
         marginHorizontal: 14
     },
     agreeTextBold:{
-        color: colors.blue,
-        marginHorizontal: 14,
         fontWeight:'bold'
+    },
+    button:{
+        marginVertical: 20
     }
 })
