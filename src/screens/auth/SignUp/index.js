@@ -5,6 +5,7 @@ import Input from "../../../components/Input";
 import Checkbox from "../../../components/Checkbox";
 import Button from "../../../components/Button";
 import { styles } from "./styles"
+import Separator from "../../../components/Separator";
 
 const SignUp = () => {
     const [checked, setChecked] = useState(false)
@@ -19,6 +20,7 @@ const SignUp = () => {
                 <Text style={styles.agreeText}>I agree with <Text style={styles.agreeTextBold}>Terms</Text> & <Text style={styles.agreeTextBold}>Privacy</Text></Text>
             </View>
             <Button style={styles.button} title="Sign In"></Button>
+            <Separator text="Or sign up with" />
         </View>
     )
 }
