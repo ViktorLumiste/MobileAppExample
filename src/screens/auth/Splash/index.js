@@ -2,8 +2,10 @@ import React from "react";
 import {
     Text,
     View,
-    Image
+    Image,
+    Pressable
 } from "react-native"
+import Button from "../../../components/Button";
 import { styles } from "./styles"
 
 const Splash = () => {
@@ -13,6 +15,12 @@ const Splash = () => {
             <Text style={styles.title} >You'll Find </Text>
             <Text style={[styles.title,styles.innerTitle]}>All You Need</Text>
             <Text style={styles.title} > Here!</Text>
+
+            <Button title="Sign Up"></Button>
+            <Pressable hitSlop={20}>
+                <Text style={styles.footerText}>Sign In</Text>
+            </Pressable>
+
         </View>
     )
 }
