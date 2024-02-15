@@ -28,5 +28,4 @@ export const styles = StyleSheet.create({
     footerLink:{
         fontWeight:'bold'
     }
-
 })

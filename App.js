@@ -1,16 +1,24 @@
 import React, {useEffect} from 'react';
-import { SafeAreaView } from "react-native"
-import SignUp from './src/screens/auth/SignUp';
+import { SafeAreaView } from "react-native";
+import SignIn from './src/screens/auth/SignIn';
 
-const WEB_CLIENT_ID = '718662104936-u8njpm6eq3bd0e7artao5oj\dotof7fp.apps.googleusercontent.com'
-const IOS_CLIENT_ID = '718662104936-u1vhhtibdac3kko6efrvr9v3vam2168a.apps.googleusercontent.com'
-const REVERSED_CLIENT_ID = 'com.googleusercontent.apps.718662104936-u1vhhtibdac3kkoefrvr9v3vam2i68a'
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
+import Config from "react-native-config"
+
 
 const App = () => {
-  useEffect(() => {},[])
+  useEffect(() => {
+    GoogleSignin. configure({
+      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+      webClientId: Config.GOOGLE_WEB_CLIENT_ID,
+      offlineAccess: true,
+      iosClientId: Config.GOOGLE_IOS_CLIENT_ID,
+      })
+  },[])
   return(
     <SafeAreaView>
-      <SignUp />
+      <SignIn />
     </SafeAreaView>
   );
 };
