@@ -5,10 +5,11 @@ import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-si
 
 const GoogleLogin = () => {
     const signIn = async () => {
+        console.log("RAN")
         try {
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
-            // this.setState({ userInfo });
+                // this.setState({ userInfo });
             console. log('userInfo = ', userInfo)
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -23,7 +24,7 @@ const GoogleLogin = () => {
         }
     }
     return(
-        <TouchableOpacity activeOpacity={0.6} style={styles.container}>
+        <TouchableOpacity activeOpacity={0.6} style={styles.container} onPress={signIn}>
             <Image style={styles.image} source={require("../../assets/google.png")} />
         </TouchableOpacity>
     )
