@@ -4,21 +4,6 @@ import {colors} from "../../../utils/colors"
 
 export const styles = StyleSheet.create({
         container: {
-        
-        },
-        image:{
-            
-        },
-        titleContainer:{
-            
-        },
-        title:{
-            
-        },
-        innerTitle:{
-            
-        },
-        footerText: {
-            
+                padding:24
         }
 })
