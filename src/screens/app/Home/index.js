@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { View, Text, FlatList } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../../components/Header";
+import { useNavigation } from '@react-navigation/native';
 import { styles } from "./styles";
 import { categories } from "../../../data/categories"
 import CategoryBox from "../../../components/CategoryBox";
@@ -10,6 +11,7 @@ import ProductHomeItem from "../../../components/ProductHomeItem";
 
 
 const Home = () => {
+    const navigation = useNavigation()
     const [selectedCategory, setSelectedCategory] = useState()
     const [keyword, setKeyword] = useState()
     const [selectedProducts, setSelectedProducts] = useState(products)
@@ -38,11 +40,18 @@ const Home = () => {
         )
     }
 
-    const renderProductItem = ({item}) => {
-        return(
-            <ProductHomeItem {...item} />
-        )
-    }
+    const renderProductItem = ({ item }) => {
+        const onProductPress = (product) => {
+            navigation.navigate("ProductDetails", {product});
+        };
+    
+        return (
+            <ProductHomeItem
+            onPress={() => onProductPress(item)}
+            {...item}
+            />
+        );
+    };
     return(
         <SafeAreaView>
             <View style={styles.container}>

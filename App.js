@@ -19,6 +19,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import {Image} from "react-native"
 import Config from "react-native-config"
 import { colors } from './src/utils/colors';
+import ProductDetails from './src/screens/app/ProductDetails';
 
 
 
@@ -86,6 +87,7 @@ const App = () => {
           isSignedIn?(
             <>
               <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}} />
+              <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
             </>
           ) : (
             <>
