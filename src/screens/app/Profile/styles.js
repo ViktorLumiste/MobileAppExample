@@ -4,21 +4,21 @@ import {colors} from "../../../utils/colors"
 
 export const styles = StyleSheet.create({
         container: {
-        
+                padding:24,
+                flex:1
         },
-        image:{
-            
+        name:{
+                fontSize:20,
+                fontWeight: 'bold',
+                color: colors.black,
+                marginBottom: 12
         },
-        titleContainer:{
-            
+        email: {
+                fontSize:14,
+                color: colors.gray,
+                marginBottom:16
         },
-        title:{
-            
-        },
-        innerTitle:{
-            
-        },
-        footerText: {
-            
+        content:{
+                flex:1
         }
 })
