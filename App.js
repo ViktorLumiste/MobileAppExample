@@ -7,6 +7,8 @@ import SignIn from './src/screens/auth/SignIn';
 import Home from './src/screens/app/Home';
 import Favorites from './src/screens/app/Favorites';
 import Profile from './src/screens/app/Profile';
+import Settings from "./src/screens/app/Settings"
+import CreateListing from './src/screens/app/CreateListing';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -21,7 +23,15 @@ import Config from "react-native-config"
 import { colors } from './src/utils/colors';
 import ProductDetails from './src/screens/app/ProductDetails';
 
-
+const ProfileStack = () =>{
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}} />
+      <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
+      <Stack.Screen name="CreateListing" component={CreateListing} options={{headerShown:false}} />
+    </Stack.Navigator>
+  )
+}
 
 const Stack = createNativeStackNavigator();
 
@@ -56,7 +66,7 @@ const Tabs = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={ProfileStack} />
     </Tab.Navigator>
   );
 }
