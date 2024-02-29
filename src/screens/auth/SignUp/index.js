@@ -10,6 +10,7 @@ import GoogleLogin from "../../../components/GoogleLogin";
 import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 import { UserContext } from "../../../../App";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SignUp = ({navigation}) => {
     const [checked, setChecked] = useState(false)
@@ -37,11 +38,14 @@ const SignUp = ({navigation}) => {
             console.log('signup >', response);
             const {email, password} = values
             axios.post('http://192.168.18.4/api/user/login', values)
-            .then(response=>{
+            .then(async (response)=>{
                 console.log('login =>', response)
                 const accessToken = response?.data?.accessToken
                 console.log(accessToken)
                 setUser({accessToken})
+                if (response?.data?.token) {
+                    await AsyncStorage.setItem('auth_token', `${response?.data?.token}`)
+                }
             })
             .catch(error=>{
                 console.log(error)

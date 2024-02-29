@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../../components/Header";
 import ListItem from "../../../components/ListItem"
 import Button from "../../../components/Button"
 import { styles } from "./styles"
-import { useNavigation } from "@react-navigation/native";
+import { UserContext } from "../../../../App";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Profile = () => {
-    const navigation = useNavigation()
+const Profile = (navigation) => {
+
+    const {user, setUser} = useContext(UserContext)
     const num = 10
 
-    const onLogout = () => {
-        navigation.navigate('Signup')
+    const onLogout = async () => {
+        console.log(user)
+        console.log('logout was clicked')
+        await AsyncStorage.removeItem('auth_token')
+        setUser(null)
     }
 
     const onSettingsPress= () =>{

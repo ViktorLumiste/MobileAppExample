@@ -77,6 +77,13 @@ const App = () => {
   const isSignedIn = false
   const [user, setUser] = useState()
 
+  useEffect(()=>{
+    (async () =>{
+      const accessToken = await AsyncStorage.getItem('auth_token')
+      setUser({ accessToken })
+    })
+  }, [])
+
   useEffect(() => {
     GoogleSignin. configure({
       scopes: ['https://www.googleapis.com/auth/drive.readonly'],
@@ -84,7 +91,7 @@ const App = () => {
       offlineAccess: true,
       iosClientId: Config.GOOGLE_IOS_CLIENT_ID,
       })
-  },[]);
+  },[])
 
   const theme = {
     colors:{
