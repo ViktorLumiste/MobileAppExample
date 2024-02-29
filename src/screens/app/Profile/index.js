@@ -12,7 +12,7 @@ const Profile = () => {
     const num = 10
 
     const onLogout = () => {
-        console.log('logout is clicked')
+        navigation.navigate('Signup')
     }
 
     const onSettingsPress= () =>{
